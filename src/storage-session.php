@@ -2,7 +2,7 @@
 /**
  * Storage loader.
  *
- * @package APIAPIStorageSession
+ * @package APIAPI\Storage_Session
  * @since 1.0.0
  */
 

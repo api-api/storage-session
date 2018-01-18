@@ -2,7 +2,7 @@
 /**
  * Storage_Session class
  *
- * @package APIAPIStorageSession
+ * @package APIAPI\Storage_Session
  * @since 1.0.0
  */
 
@@ -23,7 +23,6 @@ if ( ! class_exists( 'APIAPI\Storage_Session\Storage_Session' ) ) {
 		 * Gets the array values are stored in.
 		 *
 		 * @since 1.0.0
-		 * @access protected
 		 *
 		 * @param string $basename The basename under which to store.
 		 * @return array Array with stored data.
@@ -42,12 +41,11 @@ if ( ! class_exists( 'APIAPI\Storage_Session\Storage_Session' ) ) {
 		 * Updates the array values are stored in.
 		 *
 		 * @since 1.0.0
-		 * @access protected
 		 *
 		 * @param string $basename The basename under which to store.
 		 * @param array  $data     Array with updated data.
 		 */
-		protected function update_array( $basename, $data ) {
+		protected function update_array( $basename, array $data ) {
 			$this->maybe_start_session();
 
 			$_SESSION[ $basename ] = $data;
@@ -57,7 +55,6 @@ if ( ! class_exists( 'APIAPI\Storage_Session\Storage_Session' ) ) {
 		 * Deletes the array values are stored in.
 		 *
 		 * @since 1.0.0
-		 * @access protected
 		 *
 		 * @param string $basename The basename under which to store.
 		 */
@@ -71,7 +68,8 @@ if ( ! class_exists( 'APIAPI\Storage_Session\Storage_Session' ) ) {
 		 * Starts a session if none is running already.
 		 *
 		 * @since 1.0.0
-		 * @access protected
+		 *
+		 * @throws Exception Thrown when session cannot be initialized.
 		 */
 		protected function maybe_start_session() {
 			if ( isset( $_SESSION ) ) {
